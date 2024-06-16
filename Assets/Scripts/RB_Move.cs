@@ -4,44 +4,35 @@ using UnityEngine;
 
 public class RB_Move : MonoBehaviour
 {
-    [SerializeField] private Rigidbody  rigidbody;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float rotationSpeed = 5f;
-
+    [SerializeField] private float speed = 13f;
+    [SerializeField] private float turnSmoothTime = 0.07f;
+    [SerializeField] private float turnSmoothVelocity;
+    [SerializeField] private Rigidbody rb;
+    
     private void FixedUpdate()
     {
-        float v = Input.GetAxisRaw("Vertical");
         float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(h, 0f, v).normalized;
+        Vector3 forward = new Vector3(0, 0, 1).normalized;
 
-        
-        //if (direction.magnitude >= 0.1f)
-        //{
-        //    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationSpeed, 0.1f);
-        //    transform.rotation = Quaternion.Euler(0, angle, 0);
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-        //    Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
-        //    Vector3 velocity = moveDirection * speed;
-        //    velocity.y = rigidbody.velocity.y;
-        //    rigidbody.velocity = velocity;
-        //}
-
-
-
-        //if (direction.magnitude >= 0.1f)
-        //{
-        //    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationSpeed, 0.1f);
-            
-        //}
-
-        Vector3 direction = new Vector3(h, 0, v).normalized;
-
-        float angle = 0;
-        transform.rotation = Quaternion.Euler(0, angle, 0);
-        Vector3 velocity = direction * speed;
-        velocity.y = rigidbody.velocity.y;
-        Vector3 worldVelocity = transform.TransformVector(velocity);
-        rigidbody.velocity = worldVelocity;
+            Vector3 velocity = forward * speed;            
+            velocity.y = rb.velocity.y;
+            Vector3 worldVelocity = transform.TransformVector(velocity);
+            rb.velocity = worldVelocity;
+        }
+        else
+        {
+            Vector3 velocity = forward * 0;
+            velocity.y = rb.velocity.y;
+            Vector3 worldVelocity = transform.TransformVector(velocity);
+            rb.velocity = worldVelocity;
+        }
     }
 }
