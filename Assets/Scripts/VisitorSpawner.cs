@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisitorsSpawner : MonoBehaviour
+public class VisitorSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject VisitorsPrefab;
-    [SerializeField] private float timeToSpawn;
+    [SerializeField] private float timeToSpawn = 1f;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class VisitorsSpawner : MonoBehaviour
     private void Spawn()
     { 
         GameObject visitor = Instantiate(VisitorsPrefab);
-        visitor.transform.position = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+        visitor.transform.position = spawnPoint.position;
     }
 
     IEnumerator Spawner()
