@@ -6,7 +6,7 @@ public class VisitorSpawner : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject VisitorsPrefab;
-    [SerializeField] private float timeToSpawn = 1f;
+    private float timeToSpawn = 1f;
 
     private void Start()
     {
@@ -23,6 +23,7 @@ public class VisitorSpawner : MonoBehaviour
     {
         while (true)
         {
+            timeToSpawn = Random.Range(1.0F, 5.0F);
             yield return new WaitForSeconds(timeToSpawn);
             Spawn();
         }

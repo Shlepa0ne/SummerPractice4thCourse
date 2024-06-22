@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationScript : MonoBehaviour
+public class Animation : MonoBehaviour
 {
     public Animator animator;
     public static bool moving;
