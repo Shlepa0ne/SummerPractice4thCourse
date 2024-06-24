@@ -6,7 +6,7 @@ public class VisitorSpawner : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject VisitorsPrefab;
-    private float timeToSpawn = 1f;
+    private float timeToSpawn;
 
     private void Start()
     {
