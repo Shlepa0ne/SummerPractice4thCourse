@@ -11,7 +11,7 @@ public class MovingVisitor : MonoBehaviour
     private float turnSmoothVelocity;
 
     private Rigidbody rb;
-    private MovePoints point;
+    private ArrayOfPoints point;
 
     private Vector3 velocity;
     public Vector3 worldVelocity;
@@ -28,23 +28,11 @@ public class MovingVisitor : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        point = GetComponent<MovePoints>();
-        //chair0 = point.chair[0].transform.position;
+        point = GetComponent<ArrayOfPoints>();
         entry = GameObject.Find("EntryPoint").transform.position;
-        chair0 = GameObject.Find("ChairPoint (0)").transform.position;
-        chair1 = GameObject.Find("ChairPoint (1)").transform.position;
+        chair0 = point.chair[0].transform.position;
+        //Debug.Log(chair0);
     }
-
-    //void OnEnable()
-    //{
-    //    while (Vector3.Distance(transform.position, entry) > 0.5f)
-    //        MoveTo(entry);
-    //    while (Vector3.Distance(transform.position, chair0) > 0.5f)
-    //        MoveTo(chair0);
-    //    while (Vector3.Distance(transform.position, chair1) > 0.5f)
-    //        MoveTo(chair1);
-    //    Stop();
-    //}
 
     void FixedUpdate()
     {
@@ -58,8 +46,8 @@ public class MovingVisitor : MonoBehaviour
             else
             {
                 chair1Passed = true;
-                if (chair1Passed && !chair2Passed && Vector3.Distance(transform.position, chair1) > 0.5f)
-                    MoveTo(chair1);
+                if (chair1Passed && !chair2Passed && Vector3.Distance(transform.position, point.chair[3].transform.position) > 0.5f)
+                    MoveTo(point.chair[3].transform.position);
                 else
                 {
                     chair2Passed = true;
