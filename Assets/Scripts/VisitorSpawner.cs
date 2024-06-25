@@ -15,8 +15,7 @@ public class VisitorSpawner : MonoBehaviour
 
     private void Spawn()
     { 
-        GameObject visitor = Instantiate(VisitorsPrefab);
-        visitor.transform.position = spawnPoint.position;
+        GameObject visitor = Instantiate(VisitorsPrefab, spawnPoint.position, Quaternion.identity);
     }
 
     IEnumerator Spawner()

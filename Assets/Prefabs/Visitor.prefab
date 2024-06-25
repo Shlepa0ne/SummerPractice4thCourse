@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 13
-  turnSmoothTime: 0.07
+  turnSmoothTime: 0.06
   worldVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &7678626782725110638
 GameObject:
