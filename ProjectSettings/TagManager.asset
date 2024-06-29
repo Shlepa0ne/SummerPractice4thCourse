@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Visitor
+  - ChairPoint
+  - SeatingPlace
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,48 +13,62 @@ public class MovingVisitor : MonoBehaviour
     private float turnSmoothVelocity;
 
     private Rigidbody rb;
-    private ArrayOfPoints point;
+    private GameObject[] chairPoint;
+    private GameObject[] seatingPlace;
+    private int chairNumber = 0;
 
     private Vector3 velocity;
     public Vector3 worldVelocity;
 
     private Vector3 forward = new Vector3(0, 0, 1).normalized;    
     private Vector3 entry;
-    private Vector3 chair0;
-    private Vector3 chair1;
 
     private bool enteredRestaurant = false;
-    private bool chair1Passed = false;
-    private bool chair2Passed = false;
+    private bool chairPassed = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        point = GetComponent<ArrayOfPoints>();
+        chairPoint = GameObject.FindGameObjectsWithTag("ChairPoint");
+        seatingPlace = GameObject.FindGameObjectsWithTag("SeatingPlace");
         entry = GameObject.Find("EntryPoint").transform.position;
-        chair0 = point.chair[0].transform.position;
+        GetRandomPlace();
         //Debug.Log(chair0);
     }
 
     void FixedUpdate()
     {
+        //int availableSeats = 0;
+        //bool queue = false;
         if (!enteredRestaurant && Vector3.Distance(transform.position, entry) > 0.5f)
             MoveTo(entry);
         else
         {
             enteredRestaurant = true;
-            if (!chair1Passed && Vector3.Distance(transform.position, chair0) > 0.5f)
-                MoveTo(chair0);
+            //for (int i = 0; i < ChairManager.chairPassed.Length; i++)
+            //    if (ChairManager.chairPassed[chairNumber] == false)
+            //        availableSeats++;
+
+            //if (availableSeats == 0)
+            //    queue = true;
+            //if (queue)
+            //    Stop();
+            if (/*!ChairManager.chairPassed[chairNumber] && */ !chairPassed && Vector3.Distance(transform.position, chairPoint[chairNumber].transform.position) > 0.5f)
+                MoveTo(chairPoint[chairNumber].transform.position);
             else
             {
-                chair1Passed = true;
-                if (chair1Passed && !chair2Passed && Vector3.Distance(transform.position, point.chair[3].transform.position) > 0.5f)
-                    MoveTo(point.chair[3].transform.position);
+                Stop();
+                if (chairNumber % 2 != 0)
+                {
+                    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                }
                 else
                 {
-                    chair2Passed = true;
-                    Stop();
+                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 }
+                transform.position = seatingPlace[chairNumber].transform.position;
+                //ChairManager.chairPassed[chairNumber] = true;
+                chairPassed = true;
             }
         }
     }
@@ -76,5 +92,13 @@ public class MovingVisitor : MonoBehaviour
         velocity.y = rb.velocity.y;
         worldVelocity = transform.TransformVector(velocity);
         rb.velocity = worldVelocity;
+    }
+
+    public void GetRandomPlace()
+    {
+        chairNumber = UnityEngine.Random.Range(0, seatingPlace.Length);
+        while (ChairManager.chairPassed[chairNumber] == true)
+            chairNumber = UnityEngine.Random.Range(0, seatingPlace.Length);
+        ChairManager.chairPassed[chairNumber] = true;
     }
 }

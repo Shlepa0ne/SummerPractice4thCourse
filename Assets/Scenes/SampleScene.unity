@@ -237,8 +237,8 @@ GameObject:
   m_Component:
   - component: {fileID: 34652689}
   m_Layer: 0
-  m_Name: ChairPoint (7)
-  m_TagString: Untagged
+  m_Name: ChairPoint (0)
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,11 +252,11 @@ Transform:
   m_GameObject: {fileID: 34652688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 0.5, z: 2.5}
+  m_LocalPosition: {x: 4.75, y: 0.5, z: -6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &131133284
 GameObject:
@@ -268,8 +268,8 @@ GameObject:
   m_Component:
   - component: {fileID: 131133285}
   m_Layer: 0
-  m_Name: SeatingPlace (2)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (0)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ Transform:
   m_GameObject: {fileID: 131133284}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5834758, y: 5.405792, z: -7.359125}
+  m_LocalPosition: {x: 6.5, y: 0.875, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -299,8 +299,8 @@ GameObject:
   m_Component:
   - component: {fileID: 139752007}
   m_Layer: 0
-  m_Name: ChairPoint (0)
-  m_TagString: Untagged
+  m_Name: ChairPoint (1)
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,11 +314,11 @@ Transform:
   m_GameObject: {fileID: 139752006}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.75, y: 0.5, z: -6.75}
+  m_LocalPosition: {x: 4.75, y: 0.5, z: -3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &141311157
 GameObject:
@@ -330,8 +330,8 @@ GameObject:
   m_Component:
   - component: {fileID: 141311158}
   m_Layer: 0
-  m_Name: SeatingPlace (6)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (1)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 141311157}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.416524, y: 5.405792, z: -7.359125}
+  m_LocalPosition: {x: 6.5, y: 0.8750005, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -554,8 +554,8 @@ GameObject:
   m_Component:
   - component: {fileID: 379888508}
   m_Layer: 0
-  m_Name: SeatingPlace (5)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (2)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,13 +568,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379888507}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -9.416524, y: 5.405792, z: -10.109125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5, y: 0.8750005, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 436097586}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &387465621
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +819,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436097586}
-  - component: {fileID: 436097587}
   m_Layer: 0
   m_Name: SeatingPlaces
   m_TagString: Untagged
@@ -836,42 +835,20 @@ Transform:
   m_GameObject: {fileID: 436097585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9165242, y: -4.5307918, z: 6.609125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1235458918}
-  - {fileID: 886844319}
   - {fileID: 131133285}
+  - {fileID: 141311158}
+  - {fileID: 379888508}
+  - {fileID: 886844319}
+  - {fileID: 1235458918}
+  - {fileID: 1765754773}
   - {fileID: 1848704900}
   - {fileID: 2107638853}
-  - {fileID: 379888508}
-  - {fileID: 141311158}
-  - {fileID: 1765754773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &436097587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436097585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7129e9ee4f53314c9d438f540c9f2e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chair: []
-  place:
-  - {fileID: 1235458917}
-  - {fileID: 886844318}
-  - {fileID: 131133284}
-  - {fileID: 1848704899}
-  - {fileID: 2107638852}
-  - {fileID: 379888507}
-  - {fileID: 141311157}
-  - {fileID: 1765754772}
 --- !u!1 &516174460
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,8 +890,8 @@ GameObject:
   m_Component:
   - component: {fileID: 538704555}
   m_Layer: 0
-  m_Name: ChairPoint (3)
-  m_TagString: Untagged
+  m_Name: ChairPoint (2)
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -928,11 +905,11 @@ Transform:
   m_GameObject: {fileID: 538704554}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.75, y: 0.5, z: 2.5}
+  m_LocalPosition: {x: 4.75, y: 0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545700149
 GameObject:
@@ -943,7 +920,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 545700150}
-  - component: {fileID: 545700151}
   m_Layer: 0
   m_Name: ChairPoints
   m_TagString: Untagged
@@ -963,31 +939,17 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 34652689}
+  - {fileID: 139752007}
+  - {fileID: 538704555}
+  - {fileID: 614444140}
+  - {fileID: 952158231}
+  - {fileID: 1024943731}
+  - {fileID: 1633655251}
+  - {fileID: 1646189575}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &545700151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545700149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7129e9ee4f53314c9d438f540c9f2e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chair:
-  - {fileID: 139752006}
-  - {fileID: 1646189574}
-  - {fileID: 1024943730}
-  - {fileID: 538704554}
-  - {fileID: 614444139}
-  - {fileID: 952158230}
-  - {fileID: 1633655250}
-  - {fileID: 34652688}
-  place: []
 --- !u!1 &614444139
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,8 +960,8 @@ GameObject:
   m_Component:
   - component: {fileID: 614444140}
   m_Layer: 0
-  m_Name: ChairPoint (4)
-  m_TagString: Untagged
+  m_Name: ChairPoint (3)
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1013,11 +975,11 @@ Transform:
   m_GameObject: {fileID: 614444139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 0.5, z: -6.75}
+  m_LocalPosition: {x: 4.75, y: 0.5, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629686430
 GameObject:
@@ -1439,8 +1401,8 @@ GameObject:
   m_Component:
   - component: {fileID: 886844319}
   m_Layer: 0
-  m_Name: SeatingPlace (1)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (3)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1453,13 +1415,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886844318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 3.5834758, y: 5.405792, z: -10.109125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5, y: 0.8750005, z: 2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 436097586}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952158230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,8 +1432,8 @@ GameObject:
   m_Component:
   - component: {fileID: 952158231}
   m_Layer: 0
-  m_Name: ChairPoint (5)
-  m_TagString: Untagged
+  m_Name: ChairPoint (4)
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1485,11 +1447,11 @@ Transform:
   m_GameObject: {fileID: 952158230}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 0.5, z: -3.25}
+  m_LocalPosition: {x: -4.75, y: 0.5, z: -6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954068544
 GameObject:
@@ -1698,8 +1660,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1024943731}
   m_Layer: 0
-  m_Name: ChairPoint (2)
-  m_TagString: Untagged
+  m_Name: ChairPoint (5)
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1713,11 +1675,11 @@ Transform:
   m_GameObject: {fileID: 1024943730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.75, y: 0.5, z: -1}
+  m_LocalPosition: {x: -4.75, y: 0.5, z: -3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1052431576
 PrefabInstance:
@@ -1948,8 +1910,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1235458918}
   m_Layer: 0
-  m_Name: SeatingPlace (0)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (4)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1963,7 +1925,7 @@ Transform:
   m_GameObject: {fileID: 1235458917}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5834758, y: 5.4057918, z: -13.109125}
+  m_LocalPosition: {x: -6.5, y: 0.875, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2136,7 +2098,7 @@ GameObject:
   - component: {fileID: 1633655251}
   m_Layer: 0
   m_Name: ChairPoint (6)
-  m_TagString: Untagged
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2154,7 +2116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646189574
 GameObject:
@@ -2166,8 +2128,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1646189575}
   m_Layer: 0
-  m_Name: ChairPoint (1)
-  m_TagString: Untagged
+  m_Name: ChairPoint (7)
+  m_TagString: ChairPoint
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2181,11 +2143,11 @@ Transform:
   m_GameObject: {fileID: 1646189574}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.75, y: 0.5, z: -3.25}
+  m_LocalPosition: {x: -4.75, y: 0.5, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 545700150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765754772
 GameObject:
@@ -2197,8 +2159,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1765754773}
   m_Layer: 0
-  m_Name: SeatingPlace (7)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (5)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2211,13 +2173,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765754772}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -9.416524, y: 5.405792, z: -4.359125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.5, y: 0.8750005, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 436097586}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779105521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,8 +2550,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1848704900}
   m_Layer: 0
-  m_Name: SeatingPlace (3)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (6)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2602,13 +2564,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848704899}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 3.5834758, y: 5.405792, z: -4.359125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.5, y: 0.8750005, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 436097586}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1873682322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3107,8 +3069,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2107638853}
   m_Layer: 0
-  m_Name: SeatingPlace (4)
-  m_TagString: Untagged
+  m_Name: SeatingPlace (7)
+  m_TagString: SeatingPlace
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3122,7 +3084,7 @@ Transform:
   m_GameObject: {fileID: 2107638852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.416524, y: 5.4057918, z: -13.109125}
+  m_LocalPosition: {x: -6.5, y: 0.8750005, z: 2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3309,12 +3271,4 @@ SceneRoots:
   - {fileID: 1052431576}
   - {fileID: 143620524}
   - {fileID: 545700150}
-  - {fileID: 139752007}
-  - {fileID: 1646189575}
-  - {fileID: 1024943731}
-  - {fileID: 538704555}
-  - {fileID: 614444140}
-  - {fileID: 952158231}
-  - {fileID: 1633655251}
-  - {fileID: 34652689}
   - {fileID: 436097586}
