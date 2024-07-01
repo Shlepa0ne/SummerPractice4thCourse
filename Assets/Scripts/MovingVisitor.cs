@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,8 +14,6 @@ public class MovingVisitor : MonoBehaviour
     private float turnSmoothVelocity;
 
     private Rigidbody rb;
-    private GameObject[] chairPoint;
-    private GameObject[] seatingPlace;
     private int chairNumber = 0;
 
     private Vector3 velocity;
@@ -23,52 +22,59 @@ public class MovingVisitor : MonoBehaviour
     private Vector3 forward = new Vector3(0, 0, 1).normalized;    
     private Vector3 entry;
 
+    private bool queueFlag = false;
+    private bool inQueue = false;
     private bool enteredRestaurant = false;
-    private bool chairPassed = false;
+    private bool checkedQueue = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        chairPoint = GameObject.FindGameObjectsWithTag("ChairPoint");
-        seatingPlace = GameObject.FindGameObjectsWithTag("SeatingPlace");
         entry = GameObject.Find("EntryPoint").transform.position;
-        GetRandomPlace();
-        //Debug.Log(chair0);
+        GetRandomPlace();        
+        //Debug.Log(entry);
     }
 
     void FixedUpdate()
     {
-        //int availableSeats = 0;
-        //bool queue = false;
-        if (!enteredRestaurant && Vector3.Distance(transform.position, entry) > 0.5f)
+        int numberInQueue = 0;
+        Vector3 queuePosition = new Vector3(0, 0, 0).normalized;
+
+        if (chairNumber < 0)
+        {
+            if (!queueFlag)
+            {
+                ChairManager.queueLength += 1;
+                numberInQueue = ChairManager.queueLength;
+                queueFlag = true;
+            }
+                        
+            queuePosition = entry + new Vector3(0f, 0f, numberInQueue * 2f);
+            if (!inQueue && Vector3.Distance(transform.position, queuePosition) > 0.5f)
+                MoveTo(queuePosition);
+            else
+            {
+                inQueue = true;
+                Stop();
+            }
+        }
+
+        else if (!enteredRestaurant && Vector3.Distance(transform.position, entry) > 0.5f)
             MoveTo(entry);
         else
         {
-            enteredRestaurant = true;
-            //for (int i = 0; i < ChairManager.chairPassed.Length; i++)
-            //    if (ChairManager.chairPassed[chairNumber] == false)
-            //        availableSeats++;
-
-            //if (availableSeats == 0)
-            //    queue = true;
-            //if (queue)
-            //    Stop();
-            if (/*!ChairManager.chairPassed[chairNumber] && */ !chairPassed && Vector3.Distance(transform.position, chairPoint[chairNumber].transform.position) > 0.5f)
-                MoveTo(chairPoint[chairNumber].transform.position);
+            enteredRestaurant = true;            
+            if (!ChairManager.chairPassed[chairNumber] && Vector3.Distance(transform.position, ChairManager.chairPoint[chairNumber].transform.position) > 0.5f)
+                MoveTo(ChairManager.chairPoint[chairNumber].transform.position);
             else
             {
+                ChairManager.chairPassed[chairNumber] = true;
                 Stop();
                 if (chairNumber % 2 != 0)
-                {
                     transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                }
                 else
-                {
                     transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                }
-                transform.position = seatingPlace[chairNumber].transform.position;
-                //ChairManager.chairPassed[chairNumber] = true;
-                chairPassed = true;
+                transform.position = ChairManager.seatingPlace[chairNumber].transform.position;
             }
         }
     }
@@ -94,11 +100,16 @@ public class MovingVisitor : MonoBehaviour
         rb.velocity = worldVelocity;
     }
 
-    public void GetRandomPlace()
+    private void GetRandomPlace()
     {
-        chairNumber = UnityEngine.Random.Range(0, seatingPlace.Length);
-        while (ChairManager.chairPassed[chairNumber] == true)
-            chairNumber = UnityEngine.Random.Range(0, seatingPlace.Length);
-        ChairManager.chairPassed[chairNumber] = true;
+        List<int> availableChairs = new List<int>();
+        for (int i = 0; i < ChairManager.chairPassed.Length; i++)
+            if (!ChairManager.chairPassed[i])
+                availableChairs.Add(i);
+
+        if (availableChairs.Count > 0)
+            chairNumber = availableChairs[UnityEngine.Random.Range(0, availableChairs.Count)];
+        else
+            chairNumber = -1;
     }
 }

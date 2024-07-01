@@ -5,11 +5,14 @@ using UnityEngine;
 public class ChairManager : MonoBehaviour
 {
     public static bool[] chairPassed;
-
+    public static int queueLength = 0;
+    public static GameObject[] chairPoint;
+    public static GameObject[] seatingPlace;
     void Awake()
     {
-        GameObject[] chairPoints = GameObject.FindGameObjectsWithTag("ChairPoint");
-        chairPassed = new bool[chairPoints.Length];
+        chairPoint = GameObject.FindGameObjectsWithTag("ChairPoint");
+        seatingPlace = GameObject.FindGameObjectsWithTag("SeatingPlace");
+        chairPassed = new bool[chairPoint.Length];
         for (int i = 0; i < chairPassed.Length; i++)
             chairPassed[i] = false;
     }
