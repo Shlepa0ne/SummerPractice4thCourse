@@ -112,4 +112,8 @@ public class MovingVisitor : MonoBehaviour
         else
             chairNumber = -1;
     }
+    public int ChairNumber
+    {
+        get { return chairNumber; }
+    }
 }

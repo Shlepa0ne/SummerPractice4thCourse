@@ -5,15 +5,20 @@ using UnityEngine.AI;
 
 public class VisitorActions : MonoBehaviour
 {
+    public MovingVisitor movingVisitor;
+    private int chairNumber;
 
     void Start()
     {
-        //MovingVisitor.finish = 10f;
+        chairNumber = movingVisitor.ChairNumber;        
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
+        if (ChairManager.chairPassed[chairNumber] == true)
+        {
 
+        }
     }
 }
