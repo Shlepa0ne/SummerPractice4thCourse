@@ -68,13 +68,13 @@ public class MovingVisitor : MonoBehaviour
                 MoveTo(ChairManager.chairPoint[chairNumber].transform.position);
             else
             {
-                ChairManager.chairPassed[chairNumber] = true;
                 Stop();
                 if (chairNumber % 2 != 0)
                     transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 else
                     transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 transform.position = ChairManager.seatingPlace[chairNumber].transform.position;
+                ChairManager.chairPassed[chairNumber] = true;
             }
         }
     }
@@ -112,6 +112,7 @@ public class MovingVisitor : MonoBehaviour
         else
             chairNumber = -1;
     }
+    
     public int ChairNumber
     {
         get { return chairNumber; }
