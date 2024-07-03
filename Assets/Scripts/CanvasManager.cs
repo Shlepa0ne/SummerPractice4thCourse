@@ -5,39 +5,66 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    public CanvasGroup canvasGroup;
-
     public MovingVisitor movingVisitor;
-    public CanvasManager canvasManager;
+
+    public Image brainImage;
+    public Image lightImage;
+    public Image hamburgerImage;
+    public Image circleImage;
 
     private int chairNumber;
-    private bool satDown = false;
+    private bool isSitting = false;
 
-    void Start()
+    public void Start()
     {
-        chairNumber = movingVisitor.ChairNumber;
+        //chairNumber = movingVisitor.ChairNumber;
     }
 
     private void FixedUpdate()
     {
-        if (!satDown && ChairManager.chairPassed[chairNumber] == true)
+        if (movingVisitor != null)
+            chairNumber = movingVisitor.ChairNumber;
+        if (!isSitting && ChairManager.chairPassed[chairNumber] == true)
         {
-            satDown = true;
-            HideCanvas();
+            isSitting = true;
+            transform.position = ChairManager.seatingPlace[chairNumber].transform.position + new Vector3(0f, 1.5f, 0f);
+            ShowBrain();
         }
     }
 
-    public void ShowCanvas()
+    public void ShowBrain()
     {
-        canvasGroup.alpha = 1f;
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
+        brainImage.fillAmount = 1;
+    }
+    public void HideBrain()
+    {
+        brainImage.fillAmount = 0;
     }
 
-    public void HideCanvas()
+    public void ShowLight()
     {
-        canvasGroup.alpha = 0f;
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
+        lightImage.fillAmount = 1;
+    }
+    public void HideLight()
+    {
+        lightImage.fillAmount = 0;
+    }
+
+    public void ShowHamburger()
+    {
+        hamburgerImage.fillAmount = 1;
+    }
+    public void HideHamburger()
+    {
+        hamburgerImage.fillAmount = 0;
+    }
+    
+    public void ShowCircle()
+    {
+        circleImage.fillAmount = 1;
+    }
+    public void HideCircle()
+    {
+        circleImage.fillAmount = 0;
     }
 }

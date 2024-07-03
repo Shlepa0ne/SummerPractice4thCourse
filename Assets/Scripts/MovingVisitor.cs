@@ -14,7 +14,7 @@ public class MovingVisitor : MonoBehaviour
     private float turnSmoothVelocity;
 
     private Rigidbody rb;
-    private int chairNumber = 0;
+    private int chairNumber = -1;
 
     private Vector3 velocity;
     public Vector3 worldVelocity;

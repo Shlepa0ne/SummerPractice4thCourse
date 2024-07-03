@@ -6,6 +6,7 @@ public class VisitorSpawner : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject VisitorsPrefab;
+    [SerializeField] private GameObject CanvasPrefab;
     private float timeToSpawn;
 
     private void Start()
@@ -16,6 +17,10 @@ public class VisitorSpawner : MonoBehaviour
     private void Spawn()
     { 
         GameObject visitor = Instantiate(VisitorsPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject canvas = Instantiate(CanvasPrefab, spawnPoint.position, Quaternion.identity);
+        MovingVisitor movingVisitor = visitor.GetComponent<MovingVisitor>();
+        CanvasManager canvasManager = canvas.GetComponent<CanvasManager>();
+        canvasManager.movingVisitor = movingVisitor;
     }
 
     IEnumerator Spawner()
