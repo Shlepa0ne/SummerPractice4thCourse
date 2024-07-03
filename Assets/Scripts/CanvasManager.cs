@@ -13,22 +13,32 @@ public class CanvasManager : MonoBehaviour
     public Image circleImage;
 
     private int chairNumber;
+    private int timer = 0;
     private bool isSitting = false;
 
     public void Start()
     {
-        //chairNumber = movingVisitor.ChairNumber;
+        transform.rotation = Quaternion.Euler(-45f, 135f, 0f);
     }
 
     private void FixedUpdate()
     {
+        //transform.LookAt(Camera.main.transform.position);
         if (movingVisitor != null)
             chairNumber = movingVisitor.ChairNumber;
-        if (!isSitting && ChairManager.chairPassed[chairNumber] == true)
+        if (chairNumber >= 0)
+            if (!isSitting && ChairManager.chairPassed[chairNumber] == true)
+            {
+                isSitting = true;
+                transform.position = ChairManager.seatingPlace[chairNumber].transform.position + new Vector3(0f, 1.5f, 0f);
+                ShowBrain();
+            }
+        if (isSitting)
+            timer += 1;
+        if (timer == 100)
         {
-            isSitting = true;
-            transform.position = ChairManager.seatingPlace[chairNumber].transform.position + new Vector3(0f, 1.5f, 0f);
-            ShowBrain();
+            HideBrain();
+            ShowLight();
         }
     }
 
