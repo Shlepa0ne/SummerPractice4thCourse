@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 
 public class MovingVisitor : MonoBehaviour
 {
+    AutoMovingCube autoMovingCube;
     [SerializeField] private float speed = 13f;
     [SerializeField] private float turnSmoothTime = 0.06f;
     private float turnSmoothVelocity;
@@ -22,6 +23,7 @@ public class MovingVisitor : MonoBehaviour
     private Vector3 forward = new Vector3(0, 0, 1).normalized;    
     private Vector3 entry;
 
+    private bool isSitting = false;
     private bool queueFlag = false;
     private bool inQueue = false;
     private bool enteredRestaurant = false;
@@ -30,6 +32,7 @@ public class MovingVisitor : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        autoMovingCube = FindObjectOfType<AutoMovingCube>();
         entry = GameObject.Find("EntryPoint").transform.position;
         GetRandomPlace();        
         //Debug.Log(entry);
@@ -74,7 +77,12 @@ public class MovingVisitor : MonoBehaviour
                 else
                     transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 transform.position = ChairManager.seatingPlace[chairNumber].transform.position;
-                ChairManager.chairPassed[chairNumber] = true;
+                if (!isSitting)
+                {
+                    ChairManager.chairPassed[chairNumber] = true;
+                    autoMovingCube.occupiedChairs.Add(chairNumber);
+                    isSitting = true;
+                }
             }
         }
     }
