@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class AutoMovingCube : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class AutoMovingCube : MonoBehaviour
 
     public List<int> occupiedChairs = new List<int>();
 
-    private Vector3 currentChairPoint;
+    public Vector3 currentChairPoint;
     private Vector3 velocity;
     public Vector3 worldVelocity;
     private Vector3 forward = new Vector3(0, 0, 1).normalized;
@@ -25,6 +26,9 @@ public class AutoMovingCube : MonoBehaviour
     public bool readyToOrder = false;
     public bool orderAccepted = false;
     public bool cameToKitchen = false;
+    public bool burgerIsTaken = false;
+    public bool putBurgerDown = false;
+    public bool orderDone = false;
     private float distance;
     private int timer = 0;
 
@@ -44,7 +48,7 @@ public class AutoMovingCube : MonoBehaviour
         {
             currentChairPoint = ChairManager.chairPoint[occupiedChairs[0]].transform.position;
             distance = Vector3.Distance(transform.position, currentChairPoint);
-            if (readyToOrder && !orderAccepted && distance > 0.5f)
+            if (((readyToOrder && !orderAccepted) || burgerIsTaken) && distance > 0.5f)
                 MoveTo(currentChairPoint);
             else if (distance < 0.5f)
             {
@@ -53,18 +57,36 @@ public class AutoMovingCube : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0f, 90f, 0f);
                 else
                     transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+                if (burgerIsTaken)
+                {
+                    putBurgerDown = true;
+                }
                 timer++;
-                if (timer > 50)
+                if (timer > 30)
+                {
                     orderAccepted = true;
+                    timer = 0;
+                }
             }
 
             if (orderAccepted && !cameToKitchen && Vector3.Distance(transform.position, kitchenPoint) > 0.5)
                 MoveTo(kitchenPoint);
-            else if (orderAccepted)
+            else if (orderAccepted && !burgerIsTaken)
             {
                 cameToKitchen = true;
                 Stop();
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+
+            if (orderDone)
+            {
+                readyToOrder = false;
+                orderAccepted = false;
+                cameToKitchen = false;
+                burgerIsTaken = false;
+                putBurgerDown = false;
+                orderDone = false;
+                occupiedChairs.Remove(0);
             }
         }
         else

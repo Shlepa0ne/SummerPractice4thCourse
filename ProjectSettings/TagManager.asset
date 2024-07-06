@@ -8,6 +8,7 @@ TagManager:
   - Visitor
   - ChairPoint
   - SeatingPlace
+  - BurgerPoint
   layers:
   - Default
   - TransparentFX
