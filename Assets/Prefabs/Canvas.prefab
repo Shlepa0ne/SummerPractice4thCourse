@@ -420,7 +420,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2351398590026495234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingVisitor: {fileID: 0}
+  autoMovingCube: {fileID: 0}
   brainImage: {fileID: 8771279882211788533}
   lightImage: {fileID: 4361976112104397538}
   hamburgerImage: {fileID: 4545167186250464368}

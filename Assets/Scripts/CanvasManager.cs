@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
     public MovingVisitor movingVisitor;
-    public AutoMovingCube autoMovingCube;
+    //public AutoMovingCube autoMovingCube;
 
     public Image brainImage;
     public Image lightImage;
@@ -15,12 +15,13 @@ public class CanvasManager : MonoBehaviour
 
     private int chairNumber;
     private int timer = 0;
-    private bool isSitting = false;    
+    private bool isSitting = false;
+    public bool readyToOrder = false;    
 
     public void Start()
     {
         transform.rotation = Quaternion.Euler(-45f, 135f, 0f);
-        autoMovingCube = FindObjectOfType<AutoMovingCube>();
+        //autoMovingCube = FindObjectOfType<AutoMovingCube>();
     }
 
     private void FixedUpdate()
@@ -41,7 +42,7 @@ public class CanvasManager : MonoBehaviour
         {
             HideBrain();
             ShowLight();
-            autoMovingCube.readyToOrder = true;
+            readyToOrder = true;
         }
     }
 

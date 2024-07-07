@@ -376,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 143620523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: -6.75}
+  m_LocalPosition: {x: 1, y: 0.5, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -570,14 +570,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2687171614438609600}
   - {fileID: 174642511003706729}
-  - {fileID: 2687171614751914043}
-  - {fileID: 2687171615670241520}
-  - {fileID: 8688319474972372922}
   - {fileID: 6896603874077480979}
-  - {fileID: 8688319474727290177}
+  - {fileID: 2687171614751914043}
+  - {fileID: 2687171614438609600}
+  - {fileID: 2687171615670241520}
   - {fileID: 8688319475956577674}
+  - {fileID: 8688319474727290177}
+  - {fileID: 8688319474972372922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &364425454
@@ -685,6 +685,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364425454}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &376997927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376997928}
+  m_Layer: 0
+  m_Name: DeathPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &376997928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376997927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0.5, z: -27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &379888507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2172,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101560733}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1204970246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204970247}
+  m_Layer: 0
+  m_Name: ExitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204970247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204970246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0.5, z: -8.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228005110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,6 +3799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingVisitor: {fileID: 0}
+  burgerSpawner: {fileID: 0}
   speed: 13
   turnSmoothTime: 0.06
   occupiedChairs: 
@@ -3998,7 +4061,7 @@ Transform:
   m_GameObject: {fileID: 652798897760833854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 0.6246586, z: -4.5}
+  m_LocalPosition: {x: 6.5, y: 0.6246586, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4014,7 +4077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174642511003706729}
   m_Layer: 0
-  m_Name: BurgerPoint (1)
+  m_Name: BurgerPoint (0)
   m_TagString: BurgerPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4030,7 +4093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6896603874077480979}
   m_Layer: 0
-  m_Name: BurgerPoint (5)
+  m_Name: BurgerPoint (1)
   m_TagString: BurgerPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4045,7 +4108,7 @@ Transform:
   m_GameObject: {fileID: 3326331684787562135}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 0.6246586, z: -5.5}
+  m_LocalPosition: {x: 6.5, y: 0.6246586, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4075,7 +4138,7 @@ Transform:
   m_GameObject: {fileID: 3326331685498944679}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 0.6246586, z: 1.25}
+  m_LocalPosition: {x: -6.5, y: 0.6246586, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4107,7 +4170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2687171614438609600}
   m_Layer: 0
-  m_Name: BurgerPoint (0)
+  m_Name: BurgerPoint (3)
   m_TagString: BurgerPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4123,7 +4186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2687171615670241520}
   m_Layer: 0
-  m_Name: BurgerPoint (3)
+  m_Name: BurgerPoint (4)
   m_TagString: BurgerPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4139,7 +4202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8688319475956577674}
   m_Layer: 0
-  m_Name: BurgerPoint (7)
+  m_Name: BurgerPoint (5)
   m_TagString: BurgerPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4171,7 +4234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8688319474972372922}
   m_Layer: 0
-  m_Name: BurgerPoint (4)
+  m_Name: BurgerPoint (7)
   m_TagString: BurgerPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4186,7 +4249,7 @@ Transform:
   m_GameObject: {fileID: 1992822830318558988}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 0.6246586, z: -4.5}
+  m_LocalPosition: {x: 6.5, y: 0.6246586, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4216,7 +4279,7 @@ Transform:
   m_GameObject: {fileID: 4359864762461563045}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 0.6246586, z: -5.5}
+  m_LocalPosition: {x: -6.5, y: 0.6246586, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4231,7 +4294,7 @@ Transform:
   m_GameObject: {fileID: 4359864761214202517}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 0.6246586, z: 1.25}
+  m_LocalPosition: {x: -6.5, y: 0.6246586, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4252,6 +4315,8 @@ SceneRoots:
   - {fileID: 1309617125}
   - {fileID: 1292256905}
   - {fileID: 143620524}
+  - {fileID: 1204970247}
+  - {fileID: 376997928}
   - {fileID: 1079952411}
   - {fileID: 455422613}
   - {fileID: 336825710}

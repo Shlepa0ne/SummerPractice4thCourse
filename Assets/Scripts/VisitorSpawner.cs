@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VisitorSpawner : MonoBehaviour
 {
+    public List<GameObject> visitors = new List<GameObject>();
+
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject VisitorsPrefab;
     [SerializeField] private GameObject CanvasPrefab;
@@ -21,6 +23,8 @@ public class VisitorSpawner : MonoBehaviour
         MovingVisitor movingVisitor = visitor.GetComponent<MovingVisitor>();
         CanvasManager canvasManager = canvas.GetComponent<CanvasManager>();
         canvasManager.movingVisitor = movingVisitor;
+
+        visitors.Add(visitor);
     }
 
     IEnumerator Spawner()

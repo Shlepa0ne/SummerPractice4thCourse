@@ -7,6 +7,7 @@ using UnityEngine.XR;
 public class AutoMovingCube : MonoBehaviour
 {
     public MovingVisitor movingVisitor;
+    public BurgerSpawner burgerSpawner;
 
     [SerializeField] private float speed = 13f;
     [SerializeField] private float turnSmoothTime = 0.06f;
@@ -37,6 +38,7 @@ public class AutoMovingCube : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         startPosition = GameObject.Find("StartPoint").transform.position;
         kitchenPoint = GameObject.Find("KitchenPoint").transform.position;
+        burgerSpawner = FindObjectOfType<BurgerSpawner>();
         //Debug.Log(startPosition);
         //Debug.Log(kitchenPoint);
     }
@@ -46,6 +48,12 @@ public class AutoMovingCube : MonoBehaviour
         movingVisitor = FindObjectOfType<MovingVisitor>();
         if (occupiedChairs.Count > 0)
         {
+            CanvasManager[] canvasManagers = FindObjectsOfType<CanvasManager>();
+            if (!readyToOrder)
+                foreach (CanvasManager canvasManager in canvasManagers)
+                    if (canvasManager.readyToOrder)
+                        readyToOrder = true;
+
             currentChairPoint = ChairManager.chairPoint[occupiedChairs[0]].transform.position;
             distance = Vector3.Distance(transform.position, currentChairPoint);
             if (((readyToOrder && !orderAccepted) || burgerIsTaken) && distance > 0.5f)
@@ -62,7 +70,7 @@ public class AutoMovingCube : MonoBehaviour
                     putBurgerDown = true;
                 }
                 timer++;
-                if (timer > 30)
+                if (timer > 50)
                 {
                     orderAccepted = true;
                     timer = 0;
@@ -86,7 +94,8 @@ public class AutoMovingCube : MonoBehaviour
                 burgerIsTaken = false;
                 putBurgerDown = false;
                 orderDone = false;
-                occupiedChairs.Remove(0);
+                occupiedChairs.RemoveAt(0);
+                burgerSpawner.isSpawn = false;
             }
         }
         else

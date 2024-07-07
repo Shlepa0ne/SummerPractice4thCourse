@@ -22,19 +22,28 @@ public class MovingVisitor : MonoBehaviour
 
     private Vector3 forward = new Vector3(0, 0, 1).normalized;    
     private Vector3 entry;
+    private Vector3 exit;
+    private Vector3 death;
 
     private bool isSitting = false;
     private bool queueFlag = false;
     private bool inQueue = false;
-    private bool enteredRestaurant = false;
-    private bool checkedQueue = false;
+    private bool enteredRestaurant = false;    
+    public bool burgerIsEaten = false;
+    public bool orderDone = false;
+    public bool isEaten= false;
+    public bool leftRestaurant = false;
+
+    public int timer = 0;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         autoMovingCube = FindObjectOfType<AutoMovingCube>();
         entry = GameObject.Find("EntryPoint").transform.position;
-        GetRandomPlace();        
+        exit = GameObject.Find("ExitPoint").transform.position;
+        death = GameObject.Find("DeathPoint").transform.position;
+        GetRandomPlace();
         //Debug.Log(entry);
     }
 
@@ -43,45 +52,73 @@ public class MovingVisitor : MonoBehaviour
         int numberInQueue = 0;
         Vector3 queuePosition = new Vector3(0, 0, 0).normalized;
 
-        if (chairNumber < 0)
+        if (!orderDone)
         {
-            if (!queueFlag)
+            if (chairNumber < 0)
             {
-                ChairManager.queueLength += 1;
-                numberInQueue = ChairManager.queueLength;
-                queueFlag = true;
+                if (!queueFlag)
+                {
+                    ChairManager.queueLength += 1;
+                    numberInQueue = ChairManager.queueLength;
+                    queueFlag = true;
+                }
+
+                queuePosition = entry + new Vector3(0f, 0f, numberInQueue * 2f);
+                if (!inQueue && Vector3.Distance(transform.position, queuePosition) > 0.5f)
+                    MoveTo(queuePosition);
+                else
+                {
+                    inQueue = true;
+                    Stop();
+                }
             }
-                        
-            queuePosition = entry + new Vector3(0f, 0f, numberInQueue * 2f);
-            if (!inQueue && Vector3.Distance(transform.position, queuePosition) > 0.5f)
-                MoveTo(queuePosition);
+            else if (!enteredRestaurant && Vector3.Distance(transform.position, entry) > 0.5f)
+                MoveTo(entry);
             else
             {
-                inQueue = true;
-                Stop();
+                enteredRestaurant = true;
+                if (!ChairManager.chairPassed[chairNumber] && Vector3.Distance(transform.position, ChairManager.chairPoint[chairNumber].transform.position) > 0.5f)
+                    MoveTo(ChairManager.chairPoint[chairNumber].transform.position);
+                else
+                {
+                    Stop();
+                    if (chairNumber % 2 != 0)
+                        transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                    else
+                        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                    transform.position = ChairManager.seatingPlace[chairNumber].transform.position;
+                    if (!isSitting)
+                    {
+                        ChairManager.chairPassed[chairNumber] = true;
+                        autoMovingCube.occupiedChairs.Add(chairNumber);
+                        isSitting = true;
+                    }
+                    //if (autoMovingCube.orderDone)
+                    //    orderDone = true;
+                }
             }
         }
-
-        else if (!enteredRestaurant && Vector3.Distance(transform.position, entry) > 0.5f)
-            MoveTo(entry);
         else
         {
-            enteredRestaurant = true;            
-            if (!ChairManager.chairPassed[chairNumber] && Vector3.Distance(transform.position, ChairManager.chairPoint[chairNumber].transform.position) > 0.5f)
-                MoveTo(ChairManager.chairPoint[chairNumber].transform.position);
-            else
+            timer++;
+            if (timer > 30)
             {
-                Stop();
-                if (chairNumber % 2 != 0)
-                    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                else
-                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                transform.position = ChairManager.seatingPlace[chairNumber].transform.position;
-                if (!isSitting)
+                if (!isEaten)
                 {
-                    ChairManager.chairPassed[chairNumber] = true;
-                    autoMovingCube.occupiedChairs.Add(chairNumber);
-                    isSitting = true;
+                    isEaten = true;
+                    transform.position = ChairManager.chairPoint[chairNumber].transform.position;
+                }
+                if (!leftRestaurant && Vector3.Distance(transform.position, exit) > 0.5f)
+                {
+                    ChairManager.chairPassed[chairNumber] = false;
+                    MoveTo(exit); 
+                }
+                else 
+                {
+                    leftRestaurant = true;
+                    MoveTo(death);
+                    if (Vector3.Distance(transform.position, death) < 0.5f)
+                        Destroy(gameObject);
                 }
             }
         }

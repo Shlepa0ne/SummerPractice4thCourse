@@ -17,10 +17,10 @@ public class BurgerSpawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isSpawn && autoMovingCube.cameToKitchen == true)
+        if (!isSpawn && autoMovingCube.cameToKitchen)
         {
             timer++;
-            if (timer > 30)
+            if (timer > 50)
             {
                 isSpawn = true;
                 timer = 0;
