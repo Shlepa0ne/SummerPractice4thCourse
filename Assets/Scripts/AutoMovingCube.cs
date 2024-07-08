@@ -46,14 +46,13 @@ public class AutoMovingCube : MonoBehaviour
     void FixedUpdate()
     {
         movingVisitor = FindObjectOfType<MovingVisitor>();
-        if (occupiedChairs.Count > 0)
+        CanvasManager[] canvasManagers = FindObjectsOfType<CanvasManager>();
+        readyToOrder = false;
+        foreach (CanvasManager canvasManager in canvasManagers)
+            if (canvasManager.readyToOrder)
+                readyToOrder = true;
+        if (readyToOrder)
         {
-            CanvasManager[] canvasManagers = FindObjectsOfType<CanvasManager>();
-            if (!readyToOrder)
-                foreach (CanvasManager canvasManager in canvasManagers)
-                    if (canvasManager.readyToOrder)
-                        readyToOrder = true;
-
             currentChairPoint = ChairManager.chairPoint[occupiedChairs[0]].transform.position;
             distance = Vector3.Distance(transform.position, currentChairPoint);
             if (((readyToOrder && !orderAccepted) || burgerIsTaken) && distance > 0.5f)
@@ -102,7 +101,7 @@ public class AutoMovingCube : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, startPosition) > 0.5f)
                 MoveTo(startPosition);
-            else
+            else if (Vector3.Distance(transform.position, startPosition) < 0.5f)
             {
                 Stop();
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);

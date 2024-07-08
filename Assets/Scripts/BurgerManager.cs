@@ -37,25 +37,18 @@ public class BurgerManager : MonoBehaviour
                     autoMovingCube.burgerIsTaken = true;
                 }
             }
-            else if (timer > 20)
-                timer = 0;
             else if (autoMovingCube.putBurgerDown)
             {
-                timer++;
-                if (timer > 20)
-                {
-                    transform.position = ChairManager.burgerPoint[autoMovingCube.occupiedChairs[0]].transform.position;
-                    //Debug.Log(autoMovingCube.occupiedChairs[0]);
-                    autoMovingCube.orderDone = true;
-                    orderDone = true;
-                    timer = 0;
-                }
+                transform.position = ChairManager.burgerPoint[autoMovingCube.occupiedChairs[0]].transform.position;
+                autoMovingCube.orderDone = true;
+                orderDone = true;
+                timer = 0;             
             }
         }
         else
         {
             timer++;
-            if (timer > 30)
+            if (timer > 100)
             { 
                 Destroy(gameObject);
                 movingVisitor.orderDone = true;

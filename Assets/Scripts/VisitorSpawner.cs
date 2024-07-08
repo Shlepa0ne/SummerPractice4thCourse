@@ -31,7 +31,7 @@ public class VisitorSpawner : MonoBehaviour
     {
         while (true)
         {
-            timeToSpawn = Random.Range(2.0F, 5.0F);
+            timeToSpawn = Random.Range(2.0F, 7.0F);
             yield return new WaitForSeconds(timeToSpawn);
             Spawn();
         }

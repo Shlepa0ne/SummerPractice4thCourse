@@ -101,7 +101,7 @@ public class MovingVisitor : MonoBehaviour
         else
         {
             timer++;
-            if (timer > 30)
+            if (timer > 20)
             {
                 if (!isEaten)
                 {

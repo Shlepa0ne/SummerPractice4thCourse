@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
     public MovingVisitor movingVisitor;
-    //public AutoMovingCube autoMovingCube;
+    public VisitorSpawner visitorSpawner;
+    public AutoMovingCube autoMovingCube;
 
     public Image brainImage;
     public Image lightImage;
     public Image hamburgerImage;
     public Image circleImage;
+    public Image knifeForkPlateImage;
 
     private int chairNumber;
     private int timer = 0;
@@ -21,7 +23,8 @@ public class CanvasManager : MonoBehaviour
     public void Start()
     {
         transform.rotation = Quaternion.Euler(-45f, 135f, 0f);
-        //autoMovingCube = FindObjectOfType<AutoMovingCube>();
+        visitorSpawner = FindObjectOfType<VisitorSpawner>();
+        autoMovingCube = FindObjectOfType<AutoMovingCube>();
     }
 
     private void FixedUpdate()
@@ -43,6 +46,18 @@ public class CanvasManager : MonoBehaviour
             HideBrain();
             ShowLight();
             readyToOrder = true;
+        }
+        if (movingVisitor == visitorSpawner.visitors[0].GetComponent<MovingVisitor>())
+        {
+            if (autoMovingCube.orderAccepted)
+            {
+                HideLight();
+                ShowHamburger();
+            }
+            if (autoMovingCube.putBurgerDown)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -71,6 +86,15 @@ public class CanvasManager : MonoBehaviour
     public void HideHamburger()
     {
         hamburgerImage.fillAmount = 0;
+    }
+
+    public void ShowKnifeForkPlate()
+    {
+        knifeForkPlateImage.fillAmount = 1;
+    }
+    public void HideKnifeForkPlate()
+    {
+        knifeForkPlateImage.fillAmount = 0;
     }
     
     public void ShowCircle()
